@@ -1,0 +1,44 @@
+{
+  "name": "second-bookshop",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "dependencies": {
+    "@cap-js/hana": "^2",
+    "@cap-js/sqlite": "^2",
+    "@sap/cds": "^9",
+    "@sap/xsenv": "^6.0.0",
+    "@sap/xssec": "^4.12.1",
+    "express": "^4"
+  },
+  "scripts": {
+    "start": "cds-serve"
+  },
+  "private": true,
+  "cds": {
+    "requires": {
+      "auth": {
+        "kind": "mocked",
+        "users": {
+          "nikos": {
+            "password": "1234",
+            "roles": [
+              "admin"
+            ]
+          },
+          "*": false
+        }
+      },
+      "db": {
+        "kind": "sqlite",
+        "credentials": {
+          "url": "db/my-bookshop.sqlite"
+        }
+      },
+      "[production]": {
+        "db": {
+          "kind": "hana"
+        }
+      }
+    }
+  }
+}

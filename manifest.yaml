@@ -1,0 +1,9 @@
+applications:
+- name: cap-bookshop-demo
+  memory: 256M
+  path: .
+  buildpacks:
+    - nodejs_buildpack
+  command: npm start
+  services:
+    - second-bookshop-db
