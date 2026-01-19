@@ -1,0 +1,18 @@
+ID: cap-bookshop-demo
+_schema-version: "3.2"
+version: 0.0.1
+
+modules:
+  - name: cap-bookshop-demo-srv
+    type: nodejs
+    path: .
+    parameters:
+      memory: 256M
+    build-parameters:
+      builder: npm
+    requires:
+      - name: second-bookshop-db
+
+resources:
+  - name: second-bookshop-db
+    type: com.sap.xs.hdi-container
